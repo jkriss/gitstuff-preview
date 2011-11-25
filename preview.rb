@@ -21,7 +21,7 @@ end
 
 def render_post(slug, context={})
   post_html = render_raw_post(get_post_content(slug), context)
-  render_page(post_html)
+  render_page(post_html, context.merge(:single_post => true))
 end
 
 def render_raw_post(post, context={})
@@ -42,18 +42,35 @@ def render_page(content, context={})
   layout.render Hashie::Mash.new context.merge(:content => content)
 end
 
+def search_form
+  '<form action="/search" method="get"><input class="search" type="text" name="q"/></form>'
+end
+
+def basic_metadata
+  {
+    :root_path => '/',
+    :search_form => search_form    
+  }
+end
+
 def default_metadata
   hash = {
-   :author => { :name => "Author Name", :email => "author@example.com" }, 
-   :created_at => Time.now, 
-   :modified_at => Time.now
+    :author => { :name => "Author Name", :email => "author@example.com" }, 
+    :created_at => Time.now, 
+    :modified_at => Time.now,
+    :previous_page => '#',
+    :next_page => '#',
   }
   hash['gravatar'] = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(hash[:author][:email])}"
-  hash
+  hash.merge(basic_metadata)
 end
 
 get '/' do
   render_index default_metadata
+end
+
+get '/search' do
+  render_page '', basic_metadata.merge({ :no_results => true, :query => params[:q] || 'some search query' })
 end
 
 get '/:slug' do
