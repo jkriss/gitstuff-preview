@@ -1,0 +1,23 @@
+GEM
+  remote: http://gemcutter.org/
+  specs:
+    hashie (1.2.0)
+    liquid (2.3.0)
+    rack (1.3.5)
+    rack-protection (1.1.4)
+      rack
+    rdiscount (1.6.8)
+    sinatra (1.3.1)
+      rack (>= 1.3.4, ~> 1.3)
+      rack-protection (>= 1.1.2, ~> 1.1)
+      tilt (>= 1.3.3, ~> 1.3)
+    tilt (1.3.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  hashie
+  liquid
+  rdiscount
+  sinatra
