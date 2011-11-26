@@ -1,6 +1,4 @@
-source "http://gemcutter.org"
+source "http://rubygems.org"
 
-gem "sinatra"
-gem "liquid"
-gem "rdiscount"
-gem "hashie"
+# Specify your gem's dependencies in gitstuff-preview.gemspec
+gemspec
