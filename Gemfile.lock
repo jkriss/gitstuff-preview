@@ -1,6 +1,18 @@
-GEM
-  remote: http://gemcutter.org/
+PATH
+  remote: .
   specs:
+    gitstuff-preview (0.0.1)
+      hashie
+      liquid
+      rdiscount
+      sinatra
+      thin
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    daemons (1.1.4)
+    eventmachine (0.12.10)
     hashie (1.2.0)
     liquid (2.3.0)
     rack (1.3.5)
@@ -11,13 +23,14 @@ GEM
       rack (>= 1.3.4, ~> 1.3)
       rack-protection (>= 1.1.2, ~> 1.1)
       tilt (>= 1.3.3, ~> 1.3)
+    thin (1.3.1)
+      daemons (>= 1.0.9)
+      eventmachine (>= 0.12.6)
+      rack (>= 1.0.0)
     tilt (1.3.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  hashie
-  liquid
-  rdiscount
-  sinatra
+  gitstuff-preview!
