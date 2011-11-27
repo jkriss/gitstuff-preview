@@ -58,7 +58,7 @@ class Server < Sinatra::Base
   end
 
   def basic_metadata
-    Hashie::Mash.new ({
+    Hashie::Mash.new({
       :root_path => request.url.match(/(^.*\/{2}[^\/]*)/)[1],
       :asset_path => '/assets',
       :search_form => search_form    
