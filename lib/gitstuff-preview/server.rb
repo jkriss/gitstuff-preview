@@ -34,9 +34,9 @@ class Server < Sinatra::Base
     path ||= File.join("#{BASE_PATH}posts", slug) + ".yml"
     begin
       post_data = Hashie::Mash.new YAML.load_file(path)
-      post_data[:content] = File.read(path).sub /---.*---\n/m, ''
-      post_data[:author] = Hashie::Mash.new :name => "Author Name", :email => "author@example.com"
-      post_data[:gravatar] = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(post_data.author.email)}"
+      post_data.content = File.read(path).sub /---.*---\n/m, ''
+      post_data.author = Hashie::Mash.new :name => "Author Name", :email => "author@example.com"
+      post_data.gravatar = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(post_data.author.email)}"
       post_data.created_at = Time.now
       post_data.modified_at = Time.now
       post_data
