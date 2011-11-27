@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gitstuff-preview (0.0.1)
+    gitstuff-preview (0.0.2)
       hashie
       liquid
       rdiscount
