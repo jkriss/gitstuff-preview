@@ -28,4 +28,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency "rdiscount"
   s.add_runtime_dependency "hashie"
   s.add_runtime_dependency "thin"
+  s.add_runtime_dependency "jekyll"
 end

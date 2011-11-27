@@ -5,10 +5,15 @@ require 'sinatra/base'
 require 'hashie'
 require 'liquid'
 require 'rdiscount'
+require 'jekyll'
 
 BASE_PATH = ENV['BASE_PATH'] || "./"
 
 class Server < Sinatra::Base
+  
+  configure do
+    Liquid::Template.register_filter(Jekyll::Filters)
+  end
 
   def render_index(context={}, options={})
     context[:posts] = []
